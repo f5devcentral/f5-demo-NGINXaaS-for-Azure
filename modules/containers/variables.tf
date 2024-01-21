@@ -38,7 +38,7 @@ variable "location" {
 }
 
 variable "resource_group_name" {
-  type = string
+  type        = string
   description = "Resource Group Name"
 }
 
@@ -49,5 +49,5 @@ variable "az_container_subnet_id" {
 
 variable "mypet" {
   type        = string
-  description = "A unique string appended to ojbect names"
+  description = "A unique string appended to object names"
 }

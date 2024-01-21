@@ -35,7 +35,7 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_location"></a> [location](#input\_location) | Azure Region objects will be deployed into | `string` | n/a | yes |
 | <a name="input_my_ip_address"></a> [my\_ip\_address](#input\_my\_ip\_address) | Source IP of your machine to allow access to resources during demonstrations | `string` | n/a | yes |
-| <a name="input_mypet"></a> [mypet](#input\_mypet) | A unique string appended to ojbect names | `string` | n/a | yes |
+| <a name="input_mypet"></a> [mypet](#input\_mypet) | A unique string appended to object names | `string` | n/a | yes |
 | <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | Resource Group Name | `string` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | Tags used on objects created | `map(any)` | n/a | yes |
 
@@ -44,8 +44,8 @@ No modules.
 | Name | Description |
 |------|-------------|
 | <a name="output_container_subnet_id"></a> [container\_subnet\_id](#output\_container\_subnet\_id) | Subnet ID defined for Containers deployment |
-| <a name="output_linux_demoapp1_interface_id"></a> [linux\_demoapp1\_interface\_id](#output\_linux\_demoapp1\_interface\_id) | Linux Demostration application 1 Interface ID |
-| <a name="output_linux_demoapp2_interface_id"></a> [linux\_demoapp2\_interface\_id](#output\_linux\_demoapp2\_interface\_id) | Linux Demostration application 2 Interface ID |
+| <a name="output_linux_demoapp1_interface_id"></a> [linux\_demoapp1\_interface\_id](#output\_linux\_demoapp1\_interface\_id) | Linux Demonstration application 1 Interface ID |
+| <a name="output_linux_demoapp2_interface_id"></a> [linux\_demoapp2\_interface\_id](#output\_linux\_demoapp2\_interface\_id) | Linux Demonstration application 2 Interface ID |
 | <a name="output_nginx_frontend_public_ip"></a> [nginx\_frontend\_public\_ip](#output\_nginx\_frontend\_public\_ip) | NGINXaaS public IP address. |
 | <a name="output_nginx_frontend_public_ip_id"></a> [nginx\_frontend\_public\_ip\_id](#output\_nginx\_frontend\_public\_ip\_id) | ID of public IP address. |
 | <a name="output_nginx_subnet_id"></a> [nginx\_subnet\_id](#output\_nginx\_subnet\_id) | The subnet ID delegated for the NGINXaaS deployment. |

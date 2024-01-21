@@ -1,15 +1,15 @@
 # NGINXaaS deployed via Terraform onto Azure
 
 This repo and contained Terraform was built to created to build a new unique resource group,
-define and deploy resources such as VMs and containers and finally deploy NGINXaaS. 
+define and deploy resources such as VMs and containers and finally deploy NGINXaaS.
 
 This can be used for demonstration purposes or for building a test platform to test rules and configuration items.
 
 ## Terraform settings
+
 Configure your terraform environment so that you can access your Azure tenant per your own taste.
 
-Refer to the F5 NGINXaaS Terraform site for more details on configuring your Terraform environment and 
-details on code snippets you may find included in this repo.
+Refer to the F5 NGINXaaS Terraform site for more details on configuring your Terraform environment and details on code snippets you may find included in this repo.
 
 https://docs.nginx.com/nginxaas/azure/client-tools/terraform/
 
@@ -18,7 +18,6 @@ You will need access to an Azure instance and have configured that access from y
 demonstration code to run.
 
 https://learn.microsoft.com/en-us/azure/developer/terraform/authenticate-to-azure
-
 
 ### Terraform
 
@@ -30,15 +29,13 @@ terraform apply --var="configure=false" --auto-approve
 terraform apply --auto-approve
 ```
 
-Configure the **settings.tfvars** file to customize the deployment. For F5'ers you must define your mail address 
-for the Owner tag or your resources may be deleted without notice.
+Configure the **settings.tfvars** file to customize the deployment. For F5'ers you must define your mail address for the Owner tag or your resources may be deleted without notice.
 
-The code generates unique object names to avoid conflicts with others.
-The code also attempts to determine your public IP and inserts that into the Security Group for access control.  
-If you experience access problems to the deployment this may be a part of the problem.
+The code generates unique object names to avoid conflicts with others. The code also attempts to determine your public IP and inserts that into the Security Group for access control. If you experience access problems to the deployment this may be a part of the problem.
 
 ## Two Demo APP VMs in module linuxvm
-Two ngninx OSS web servers are deployed. 
+
+Two NGINX OSS web servers are deployed.
 These demo app servers are defined in the terraform files:
 
 These can be used for demonstrations and tests of failover, traffic rules, and header injection/manipulation.
@@ -51,22 +48,22 @@ The **userdata.tftpl** file defines the configurations for these two servers.
 This is shell script that runs through the clout-init process.
 
 These two demo servers are statically assigned 10.0.1.10 and 10.0.1.11 and both listen on port 80
-Each demo app server will be assigned a public IP, an NSG assigned to allown only your public IP to ssh
+Each demo app server will be assigned a public IP, an NSG assigned to allow only your public IP to ssh
 to it and the public key configured outside of this repo to login.
 
 ## Two echo containers are deployed via module containers
 
-These two echo server instances are deployed and configured in the nginx.conf file to respond when you issue
+These two echo server instances are deployed and configured in the **nginx.conf** file to respond when you issue
 requests to the "NGINXaaS Public IP" and the /container URI.
 
-Echo servers are great to immmediately see all of the related headers and so on that the web servers see when
+Echo servers are great to immediately see all of the related headers and so on that the web servers see when
 you make a request reflected back to you in the page render.
 
 The two containers are configured so they will always deploy with the same IPs, 10.0.2.4 and 10.0.2.5.
 
 ## NGINXaaS deployment
-The NGINXaaS deployment is configured and set with a public IP and is ready to configure.
-NGINXaaS when provisioned will have a default configuration applied. 
+
+The NGINXaaS deployment is configured and set with a public IP and is ready to configure. NGINXaaS when provisioned will have a default configuration applied.
 
 You are now ready to go into the Azure Portal and setup the NGINXaaS configuration and so on.
 
@@ -78,14 +75,14 @@ Terraform doesn't know about this default so it will throw and error.
 *See issue ID:* **ID-891**
 https://docs.nginx.com/nginxaas/azure/known-issues/
 
-If you wish to deploy a configuration with this repo's code. You will need to import the default configuration and do another apply to place your configuration on the system. 
+If you wish to deploy a configuration with this repo's code. You will need to import the default configuration and do another apply to place your configuration on the system.
 
-Run the "importconfig.sh" script after your first apply and the object should be under management of Terraform at that point.
+Run the **importconfig.sh** script after your first apply and the object should be under management of Terraform at that point.
 Make sure you set the "configure" variable to "true" if you wish to have the next run on Terraform apply to install the configurations as defined in "files".
 
 The error you may see for this existing configuration will appear similar to the following:
 
-```
+```shell
 │ Error: A resource with the ID "/subscriptions/<SUBSCRIPTION>/resourceGroups/<RESOURCEGROUPNAME>/providers/Nginx.NginxPlus/nginxDeployments/nginxaas-demo/configurations/default" already exists - to be managed via Terraform this resource needs to be imported into the State. Please see the resource documentation for "azurerm_nginx_configuration" for more information.
 │ 
 │   with azurerm_nginx_configuration.nginxaas-config,

@@ -1,5 +1,5 @@
 # These are the values we will use for the deployment
-# they are substituded in at run time 
+# they are substituted in at run time
 
 # Set your Azure Region for the deployment
 location = "eastus"

@@ -10,15 +10,15 @@ variable "location" {
 
 variable "mypet" {
   type        = string
-  description = "A unique string appended to ojbect names"
+  description = "A unique string appended to object names"
 }
 
 variable "resource_group_name" {
-  type = string
+  type        = string
   description = "Resource Group Name"
 }
 
 variable "my_ip_address" {
-  type = string
+  type        = string
   description = "Source IP of your machine to allow access to resources during demonstrations"
 }
