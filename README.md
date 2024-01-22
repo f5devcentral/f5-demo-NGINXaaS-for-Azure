@@ -1,6 +1,6 @@
 # NGINXaaS deployed via Terraform onto Azure
 
-This repo and contained Terraform was built to created to build a new unique resource group,
+This repo and contained Terraform was created to build a new unique resource group,
 define and deploy resources such as VMs and containers and finally deploy NGINXaaS.
 
 This can be used for demonstration purposes or for building a test platform to test rules and configuration items.
@@ -14,8 +14,7 @@ Refer to the F5 NGINXaaS Terraform site for more details on configuring your Ter
 https://docs.nginx.com/nginxaas/azure/client-tools/terraform/
 
 You'll need to run "terraform init" and I'd suggest a "terraform plan" to test before applying.
-You will need access to an Azure instance and have configured that access from your system for this
-demonstration code to run.
+You will need access to an Azure instance and have configured that access from your system for this demonstration code to run.
 
 https://learn.microsoft.com/en-us/azure/developer/terraform/authenticate-to-azure
 
@@ -155,12 +154,9 @@ The error you may see for this existing configuration will appear similar to the
 | Name | Description |
 |------|-------------|
 | <a name="output_NGINX-ip_address"></a> [NGINX-ip\_address](#output\_NGINX-ip\_address) | IP address of NGINXaaS deployment. |
-| <a name="output_container1_ipv4_address"></a> [container1\_ipv4\_address](#output\_container1\_ipv4\_address) | Container 1 private IP address |
-| <a name="output_container2_ipv4_address"></a> [container2\_ipv4\_address](#output\_container2\_ipv4\_address) | Container 2 private IP address |
-| <a name="output_demo_app_1_private_ip"></a> [demo\_app\_1\_private\_ip](#output\_demo\_app\_1\_private\_ip) | The Private IP address for Linux VM demonstration application 1 |
 | <a name="output_demo_app_1_public_ip"></a> [demo\_app\_1\_public\_ip](#output\_demo\_app\_1\_public\_ip) | The Public IP address for Linux VM demonstration application 1 |
-| <a name="output_demo_app_2_private_ip"></a> [demo\_app\_2\_private\_ip](#output\_demo\_app\_2\_private\_ip) | The Private IP address for Linux VM demonstration application 2 |
 | <a name="output_demo_app_2_public_ip"></a> [demo\_app\_2\_public\_ip](#output\_demo\_app\_2\_public\_ip) | The Public IP address for Linux VM demonstration application 2 |
 | <a name="output_my_public_ip"></a> [my\_public\_ip](#output\_my\_public\_ip) | The public IP of the system running Terraform used in Security Group for access control |
 | <a name="output_nginx_default_config_id"></a> [nginx\_default\_config\_id](#output\_nginx\_default\_config\_id) | NGINXaaS deployment default configuration ID |
+| <a name="output_resource_group_name"></a> [resource\_group\_name](#output\_resource\_group\_name) | The resource group name under which all of our objects are deployed |
 <!-- END_TF_DOCS -->
