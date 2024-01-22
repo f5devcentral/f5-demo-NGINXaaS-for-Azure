@@ -2,11 +2,11 @@ data "azurerm_client_config" "current" {}
 
 # This keyvault is NOT firewalled.
 resource "azurerm_key_vault" "keyvault" {
-  name                   = "keyvault-${var.mypet}"
-  location               = var.location
-  resource_group_name    = var.resource_group_name
-  tenant_id           = data.azurerm_client_config.current.tenant_id
-  enable_rbac_authorization = true
+  name                       = "keyvault-${var.mypet}"
+  location                   = var.location
+  resource_group_name        = var.resource_group_name
+  tenant_id                  = data.azurerm_client_config.current.tenant_id
+  enable_rbac_authorization  = true
   soft_delete_retention_days = 7
   purge_protection_enabled   = false
 
@@ -71,7 +71,7 @@ resource "azurerm_key_vault_certificate" "example" {
     }
   }
   depends_on = [azurerm_role_assignment.current_user]
-  tags = var.tags
+  tags       = var.tags
 }
 
 resource "azurerm_role_assignment" "nginxaas-role" {

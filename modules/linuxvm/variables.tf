@@ -19,21 +19,21 @@ variable "location" {
 }
 
 variable "resource_group_name" {
-  type = string
+  type        = string
   description = "Resource Group Name"
 }
 
 variable "mypet" {
   type        = string
-  description = "A unique string appended to ojbect names"
+  description = "A unique string appended to object names"
 }
 
 variable "linux_demoapp1_interface_id" {
-  description = "Linux Demostration application 1 Interface ID"
+  description = "Linux Demonstration application 1 Interface ID"
   type        = string
 }
 
 variable "linux_demoapp2_interface_id" {
-  description = "Linux Demostration application 2 Interface ID"
+  description = "Linux Demonstration application 2 Interface ID"
   type        = string
 }

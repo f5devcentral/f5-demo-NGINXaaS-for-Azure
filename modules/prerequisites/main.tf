@@ -2,7 +2,7 @@
 resource "azurerm_user_assigned_identity" "id_nginxaas" {
   location            = var.location
   name                = "id_nginxaas-${var.mypet}"
-  resource_group_name = var.resource_group_name 
+  resource_group_name = var.resource_group_name
 
   tags = var.tags
 }
@@ -110,7 +110,7 @@ resource "azurerm_public_ip" "pip_demo_app_1" {
   location            = var.location
   resource_group_name = var.resource_group_name
   allocation_method   = "Dynamic"
-  tags = var.tags
+  tags                = var.tags
 
 }
 
@@ -135,7 +135,7 @@ resource "azurerm_public_ip" "pip_demo_app_2" {
   location            = var.location
   resource_group_name = var.resource_group_name
   allocation_method   = "Dynamic"
-  tags = var.tags
+  tags                = var.tags
 }
 
 resource "azurerm_network_interface" "int_demo_app_2" {

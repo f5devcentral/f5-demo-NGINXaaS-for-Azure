@@ -2,7 +2,6 @@ variable "image" {
   type        = string
   description = "Container image to deploy. Should be of the form repoName/imagename:tag for images stored in public Docker Hub, or a fully qualified URI for other registries. Images from private registries require additional registry credentials."
   default     = "registry.hub.docker.com/ealen/echo-server:latest"
-  #default     = "mcr.microsoft.com/azuredocs/aci-helloworld"
 }
 
 variable "port" {
@@ -38,7 +37,7 @@ variable "tags" {
   type        = map(any)
   default = {
     env   = "Development"
-    Owner =  "addr@example.com"
+    Owner = "addr@example.com"
   }
 }
 

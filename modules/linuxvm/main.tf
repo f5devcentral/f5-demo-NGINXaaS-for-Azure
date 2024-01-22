@@ -4,7 +4,7 @@ resource "azurerm_linux_virtual_machine" "linuxapp-1" {
   name                = "linux_app1-${var.mypet}"
   resource_group_name = var.resource_group_name
   location            = var.location
-  custom_data = base64encode(templatefile("${path.module}/userdata.tftpl", { nginxinstance = 1 }))
+  custom_data         = base64encode(templatefile("${path.module}/userdata.tftpl", { nginxinstance = 1 }))
   network_interface_ids = [
     var.linux_demoapp1_interface_id,
   ]
@@ -68,5 +68,4 @@ resource "azurerm_linux_virtual_machine" "linuxapp-2" {
   }
 
   tags = var.tags
-  
 }

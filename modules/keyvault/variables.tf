@@ -10,15 +10,15 @@ variable "location" {
 
 variable "mypet" {
   type        = string
-  description = "A unique string appended to ojbect names"
+  description = "A unique string appended to object names"
 }
 
 variable "resource_group_name" {
-  type = string
+  type        = string
   description = "Resource Group Name"
 }
 
 variable "nginxaas_principal_id" {
   description = "Principal ID the NGINXaaS user identity."
-  type = string
+  type        = string
 }

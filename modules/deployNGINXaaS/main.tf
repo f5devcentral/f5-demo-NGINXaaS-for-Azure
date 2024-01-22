@@ -20,8 +20,8 @@ resource "azurerm_nginx_deployment" "nginxaas-demo" {
   tags = var.tags
 }
 
-resource "azurerm_role_assignment" "nginxaas_monitering" {
-  scope                      = azurerm_nginx_deployment.nginxaas-demo.id
-  role_definition_name       = "Monitoring Metrics Publisher"
-  principal_id               = var.nginxaas_principal_id
+resource "azurerm_role_assignment" "nginxaas_monitoring" {
+  scope                = azurerm_nginx_deployment.nginxaas-demo.id
+  role_definition_name = "Monitoring Metrics Publisher"
+  principal_id         = var.nginxaas_principal_id
 }
