@@ -10,10 +10,10 @@ output "demo_app_2_public_ip" {
 
 output "my_public_ip" {
   description = "The public IP of the system running Terraform used in Security Group for access control"
-  value       = data.external.myipaddr.result.ip
+  value       = data.http.ip.response_body
 }
 
-output "NGINX-ip_address" {
+output "NGINXaaS-ip_address" {
   description = "IP address of NGINXaaS deployment."
   value       = module.prerequisites.nginx_frontend_public_ip
 }

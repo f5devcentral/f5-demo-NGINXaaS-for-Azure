@@ -4,6 +4,12 @@ This repo and contained Terraform was created to build a new unique resource gro
 define and deploy resources such as VMs and containers and finally deploy NGINXaaS.
 
 This can be used for demonstration purposes or for building a test platform to test rules and configuration items.
+This demo deployment has been updated to user System Asssigned IDs for NGINXaaS as well as sending logs to a storage account and Log Analytics Workspace. 
+
+Per recommendations at this site:
+https://docs.nginx.com/nginxaas/azure/monitoring/azure-integrated-nginx-logs/
+
+The determination of the public IP used by the terraform system has also been updated to be more cross platform compatible.
 
 ## Terraform settings
 
@@ -102,6 +108,7 @@ The error you may see for this existing configuration will appear similar to the
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.3 |
 | <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~>3.57 |
+| <a name="requirement_http"></a> [http](#requirement\_http) | ~>3.0 |
 | <a name="requirement_random"></a> [random](#requirement\_random) | ~>3.0 |
 | <a name="requirement_tls"></a> [tls](#requirement\_tls) | ~>4.0 |
 
@@ -109,9 +116,9 @@ The error you may see for this existing configuration will appear similar to the
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.88.0 |
-| <a name="provider_external"></a> [external](#provider\_external) | 2.3.2 |
-| <a name="provider_random"></a> [random](#provider\_random) | 3.6.0 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | ~>3.57 |
+| <a name="provider_http"></a> [http](#provider\_http) | ~>3.0 |
+| <a name="provider_random"></a> [random](#provider\_random) | ~>3.0 |
 
 ## Modules
 
@@ -131,7 +138,8 @@ The error you may see for this existing configuration will appear similar to the
 |------|------|
 | [azurerm_resource_group.rg](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group) | resource |
 | [random_pet.pet](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet) | resource |
-| [external_external.myipaddr](https://registry.terraform.io/providers/hashicorp/external/latest/docs/data-sources/external) | data source |
+| [random_string.randstr](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string) | resource |
+| [http_http.ip](https://registry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http) | data source |
 
 ## Inputs
 
@@ -153,7 +161,7 @@ The error you may see for this existing configuration will appear similar to the
 
 | Name | Description |
 |------|-------------|
-| <a name="output_NGINX-ip_address"></a> [NGINX-ip\_address](#output\_NGINX-ip\_address) | IP address of NGINXaaS deployment. |
+| <a name="output_NGINXaaS-ip_address"></a> [NGINXaaS-ip\_address](#output\_NGINXaaS-ip\_address) | IP address of NGINXaaS deployment. |
 | <a name="output_demo_app_1_public_ip"></a> [demo\_app\_1\_public\_ip](#output\_demo\_app\_1\_public\_ip) | The Public IP address for Linux VM demonstration application 1 |
 | <a name="output_demo_app_2_public_ip"></a> [demo\_app\_2\_public\_ip](#output\_demo\_app\_2\_public\_ip) | The Public IP address for Linux VM demonstration application 2 |
 | <a name="output_my_public_ip"></a> [my\_public\_ip](#output\_my\_public\_ip) | The public IP of the system running Terraform used in Security Group for access control |

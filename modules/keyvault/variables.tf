@@ -18,7 +18,7 @@ variable "resource_group_name" {
   description = "Resource Group Name"
 }
 
-variable "nginxaas_principal_id" {
-  description = "Principal ID the NGINXaaS user identity."
+variable "nginxaas_deployment_object_guid" {
+  description = "Principal GUID for the NGINXaaS system user identity."
   type        = string
 }

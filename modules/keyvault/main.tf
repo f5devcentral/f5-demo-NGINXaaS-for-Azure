@@ -77,6 +77,6 @@ resource "azurerm_key_vault_certificate" "example" {
 resource "azurerm_role_assignment" "nginxaas-role" {
   scope                = azurerm_key_vault.keyvault.id
   role_definition_name = "Key Vault Secrets User"
-  principal_id         = var.nginxaas_principal_id
+  principal_id         = var.nginxaas_deployment_object_guid
 
 }

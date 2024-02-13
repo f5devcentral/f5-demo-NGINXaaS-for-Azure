@@ -7,6 +7,25 @@ resource "azurerm_user_assigned_identity" "id_nginxaas" {
   tags = var.tags
 }
 
+resource "azurerm_storage_account" "nginxaas_stgacc" {
+  name                     = "storage${var.randomstring}"
+  resource_group_name      = var.resource_group_name
+  location                 = var.location
+  account_tier             = "Standard"
+  account_replication_type = "GRS"
+
+  tags = var.tags
+}
+
+resource "azurerm_log_analytics_workspace" "nginxaas_loganalytics" {
+  name                   = "logs-${var.mypet}"
+  resource_group_name    = var.resource_group_name
+  location               = var.location
+  retention_in_days      = 30
+
+  tags = var.tags
+}
+
 resource "azurerm_network_security_group" "sg_allowedin" {
   name                = "sg_allowedin-${var.mypet}"
   resource_group_name = var.resource_group_name
@@ -106,7 +125,7 @@ resource "azurerm_subnet_network_security_group_association" "sg_assoc" {
 }
 
 resource "azurerm_public_ip" "pip_demo_app_1" {
-  name                = "demoapp1_publicip-${var.mypet}"
+  name                = "demoapp1_pip-${var.mypet}"
   location            = var.location
   resource_group_name = var.resource_group_name
   allocation_method   = "Dynamic"
@@ -131,7 +150,7 @@ resource "azurerm_network_interface" "int_demo_app_1" {
 }
 
 resource "azurerm_public_ip" "pip_demo_app_2" {
-  name                = "demoapp2_publicip-${var.mypet}"
+  name                = "demoapp2_pip-${var.mypet}"
   location            = var.location
   resource_group_name = var.resource_group_name
   allocation_method   = "Dynamic"

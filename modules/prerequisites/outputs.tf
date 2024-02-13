@@ -37,3 +37,13 @@ output "container_subnet_id" {
   description = "Subnet ID defined for Containers deployment"
   value       = azurerm_subnet.container.id
 }
+
+output "azure_storage_acc_id" {
+  description = "Storage account used for NGINXaaS system assisgned identity"
+  value       = azurerm_storage_account.nginxaas_stgacc.id
+}
+
+output "azure_analytics_workplace_id" {
+  description = "Azure Log Analytics Workspace ID for NGINXaaS logs"
+  value       = azurerm_log_analytics_workspace.nginxaas_loganalytics.id
+}
