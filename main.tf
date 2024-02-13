@@ -1,4 +1,5 @@
 resource "random_pet" "pet" {
+  length = 1
 }
 
 locals {
@@ -24,6 +25,7 @@ module "prerequisites" {
   depends_on = [azurerm_resource_group.rg]
 }
 
+/*
 module "linux_vm_apps" {
   source                      = "./modules/linuxvm"
   instance_size               = var.instance_size
@@ -53,6 +55,7 @@ module "containers" {
 
   depends_on = [module.prerequisites]
 }
+*/
 
 module "deployNGINXaaS" {
   source                      = "./modules/deployNGINXaaS"
@@ -65,19 +68,20 @@ module "deployNGINXaaS" {
   nginxaas_principal_id       = module.prerequisites.nginxaas_principal_id
   nginx_frontend_public_ip_id = module.prerequisites.nginx_frontend_public_ip_id
   nginx_subnet_id             = module.prerequisites.nginx_subnet_id
+  azure_storage_acc_id        = module.prerequisites.azure_storage_acc_id
 
   depends_on = [module.prerequisites]
 }
 
 module "keyvault" {
-  source                = "./modules/keyvault"
-  resource_group_name   = local.resource_group_name
-  mypet                 = local.mypet
-  tags                  = var.tags
-  location              = var.location
-  nginxaas_principal_id = module.prerequisites.nginxaas_principal_id
+  source                          = "./modules/keyvault"
+  resource_group_name             = local.resource_group_name
+  mypet                           = local.mypet
+  tags                            = var.tags
+  location                        = var.location
+  nginxaas_deployment_object_guid = module.deployNGINXaaS.nginxaas_deployment_object_guid
 
-  depends_on = [module.prerequisites]
+  depends_on                      = [module.prerequisites]
 }
 
 module "nginxcertificate" {

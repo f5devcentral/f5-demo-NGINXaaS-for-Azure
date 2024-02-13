@@ -7,6 +7,16 @@ resource "azurerm_user_assigned_identity" "id_nginxaas" {
   tags = var.tags
 }
 
+resource "azurerm_storage_account" "nginxaas_stgacc" {
+  name                     = "nginxaasstore${var.mypet}"
+  resource_group_name      = var.resource_group_name
+  location                 = var.location
+  account_tier             = "Standard"
+  account_replication_type = "GRS"
+
+  tags = var.tags
+}
+
 resource "azurerm_network_security_group" "sg_allowedin" {
   name                = "sg_allowedin-${var.mypet}"
   resource_group_name = var.resource_group_name

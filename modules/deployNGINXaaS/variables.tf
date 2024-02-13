@@ -41,3 +41,8 @@ variable "nginx_subnet_id" {
   description = "ID of the NGINXaaS Subnet."
   type        = string
 }
+
+variable "azure_storage_acc_id" {
+  description = "Azure Storage account for NGINXaaS System IDentity"
+  type        = string
+}

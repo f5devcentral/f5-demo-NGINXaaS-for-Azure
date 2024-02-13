@@ -1,3 +1,4 @@
+/*
 output "demo_app_1_public_ip" {
   description = "The Public IP address for Linux VM demonstration application 1"
   value       = module.linux_vm_apps.linux_demoapp1_public_ip
@@ -7,6 +8,7 @@ output "demo_app_2_public_ip" {
   description = "The Public IP address for Linux VM demonstration application 2"
   value       = module.linux_vm_apps.linux_demoapp2_public_ip
 }
+*/
 
 output "my_public_ip" {
   description = "The public IP of the system running Terraform used in Security Group for access control"
@@ -26,4 +28,9 @@ output "nginx_default_config_id" {
 output "resource_group_name" {
   description = "The resource group name under which all of our objects are deployed"
   value       = local.resource_group_name
+}
+
+output "nginxaas_deployment_object_guid" {
+  description = "The object principal GUID of the NGINXaaS deployment"
+  value       = module.deployNGINXaaS.nginxaas_deployment_object_guid
 }
