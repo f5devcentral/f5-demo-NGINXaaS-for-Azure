@@ -22,3 +22,8 @@ variable "my_ip_address" {
   type        = string
   description = "Source IP of your machine to allow access to resources during demonstrations"
 }
+
+variable "randomstring" {
+  type        = string
+  description = "Random String used to name Storage Account"
+}

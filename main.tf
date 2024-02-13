@@ -1,9 +1,17 @@
 resource "random_pet" "pet" {
-  length = 1
+}
+
+resource "random_string" "randstr" {
+  length           = 16
+  special          = false
+  lower            = true
+  upper            = false
+  numeric          = true
 }
 
 locals {
   mypet               = random_pet.pet.id
+  randomstring        = random_string.randstr.id
   resource_group_name = "rg-${local.mypet}"
 }
 
@@ -20,12 +28,12 @@ module "prerequisites" {
   tags                = var.tags
   location            = var.location
   resource_group_name = local.resource_group_name
-  my_ip_address       = data.external.myipaddr.result.ip
+  my_ip_address       = data.http.ip.response_body
+  randomstring        = local.randomstring
 
   depends_on = [azurerm_resource_group.rg]
 }
 
-/*
 module "linux_vm_apps" {
   source                      = "./modules/linuxvm"
   instance_size               = var.instance_size
@@ -55,20 +63,20 @@ module "containers" {
 
   depends_on = [module.prerequisites]
 }
-*/
 
 module "deployNGINXaaS" {
-  source                      = "./modules/deployNGINXaaS"
-  sku                         = var.sku
-  resource_group_name         = local.resource_group_name
-  mypet                       = local.mypet
-  tags                        = var.tags
-  location                    = var.location
-  nginx_user_id               = module.prerequisites.nginxaas_user_id
-  nginxaas_principal_id       = module.prerequisites.nginxaas_principal_id
-  nginx_frontend_public_ip_id = module.prerequisites.nginx_frontend_public_ip_id
-  nginx_subnet_id             = module.prerequisites.nginx_subnet_id
-  azure_storage_acc_id        = module.prerequisites.azure_storage_acc_id
+  source                       = "./modules/deployNGINXaaS"
+  sku                          = var.sku
+  resource_group_name          = local.resource_group_name
+  mypet                        = local.mypet
+  tags                         = var.tags
+  location                     = var.location
+  nginx_user_id                = module.prerequisites.nginxaas_user_id
+  nginxaas_principal_id        = module.prerequisites.nginxaas_principal_id
+  nginx_frontend_public_ip_id  = module.prerequisites.nginx_frontend_public_ip_id
+  nginx_subnet_id              = module.prerequisites.nginx_subnet_id
+  azure_storage_acc_id         = module.prerequisites.azure_storage_acc_id
+  azure_analytics_workplace_id = module.prerequisites.azure_analytics_workplace_id
 
   depends_on = [module.prerequisites]
 }

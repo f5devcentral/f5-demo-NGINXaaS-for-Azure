@@ -20,9 +20,10 @@ resource "azurerm_nginx_deployment" "nginxaas-demo" {
 }
 
 resource "azurerm_monitor_diagnostic_setting" "nginxaas_monitor" {
-  name               = "${azurerm_nginx_deployment.nginxaas-demo.name}-logs"
-  target_resource_id = azurerm_nginx_deployment.nginxaas-demo.id
-  storage_account_id = var.azure_storage_acc_id
+  name                       = "${azurerm_nginx_deployment.nginxaas-demo.name}-logs"
+  target_resource_id         = azurerm_nginx_deployment.nginxaas-demo.id
+  storage_account_id         = var.azure_storage_acc_id
+  log_analytics_workspace_id = var.azure_analytics_workplace_id
 
   enabled_log {
     category = "NginxLogs"

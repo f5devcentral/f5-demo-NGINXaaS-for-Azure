@@ -17,12 +17,14 @@ No modules.
 
 | Name | Type |
 |------|------|
+| [azurerm_log_analytics_workspace.nginxaas_loganalytics](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_workspace) | resource |
 | [azurerm_network_interface.int_demo_app_1](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface) | resource |
 | [azurerm_network_interface.int_demo_app_2](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface) | resource |
 | [azurerm_network_security_group.sg_allowedin](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_security_group) | resource |
 | [azurerm_public_ip.pip_demo_app_1](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/public_ip) | resource |
 | [azurerm_public_ip.pip_demo_app_2](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/public_ip) | resource |
 | [azurerm_public_ip.pip_ngxaas](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/public_ip) | resource |
+| [azurerm_storage_account.nginxaas_stgacc](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account) | resource |
 | [azurerm_subnet.container](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet) | resource |
 | [azurerm_subnet.nginx_subnet](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet) | resource |
 | [azurerm_subnet_network_security_group_association.sg_assoc](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet_network_security_group_association) | resource |
@@ -36,6 +38,7 @@ No modules.
 | <a name="input_location"></a> [location](#input\_location) | Azure Region objects will be deployed into | `string` | n/a | yes |
 | <a name="input_my_ip_address"></a> [my\_ip\_address](#input\_my\_ip\_address) | Source IP of your machine to allow access to resources during demonstrations | `string` | n/a | yes |
 | <a name="input_mypet"></a> [mypet](#input\_mypet) | A unique string appended to object names | `string` | n/a | yes |
+| <a name="input_randomstring"></a> [randomstring](#input\_randomstring) | Random String used to name Storage Account | `string` | n/a | yes |
 | <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | Resource Group Name | `string` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | Tags used on objects created | `map(any)` | n/a | yes |
 
@@ -43,6 +46,8 @@ No modules.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_azure_analytics_workplace_id"></a> [azure\_analytics\_workplace\_id](#output\_azure\_analytics\_workplace\_id) | Azure Log Analytics Workspace ID for NGINXaaS logs |
+| <a name="output_azure_storage_acc_id"></a> [azure\_storage\_acc\_id](#output\_azure\_storage\_acc\_id) | Storage account used for NGINXaaS system assisgned identity |
 | <a name="output_container_subnet_id"></a> [container\_subnet\_id](#output\_container\_subnet\_id) | Subnet ID defined for Containers deployment |
 | <a name="output_linux_demoapp1_interface_id"></a> [linux\_demoapp1\_interface\_id](#output\_linux\_demoapp1\_interface\_id) | Linux Demonstration application 1 Interface ID |
 | <a name="output_linux_demoapp2_interface_id"></a> [linux\_demoapp2\_interface\_id](#output\_linux\_demoapp2\_interface\_id) | Linux Demonstration application 2 Interface ID |
