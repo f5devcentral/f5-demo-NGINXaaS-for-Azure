@@ -22,6 +22,8 @@ resource "azurerm_log_analytics_workspace" "nginxaas_loganalytics" {
   resource_group_name    = var.resource_group_name
   location               = var.location
   retention_in_days      = 30
+
+  tags = var.tags
 }
 
 resource "azurerm_network_security_group" "sg_allowedin" {
